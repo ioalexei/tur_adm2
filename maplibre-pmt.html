@@ -61,19 +61,37 @@
                         "source-layer":"tur_adm2",
                         "type": "fill",
                         "paint": {
-                            "fill-color": "steelblue"
+                            "fill-outline-color": "mediumblue",
+                            "fill-color": "steelblue",
+                            "fill-opacity":0.2
                         }
                     }, 
                     {
-                        "id":"markets",
+                        "id":"shops",
                         "source": "example_source",
                         "source-layer":"markets",
-                        "type": "circle"
+                        "type": "circle",
+                        "paint":{
+                            "circle-radius":2,
+                            "circle-color":"purple"
+                        },
+                        "filter":["all", ["==", "$Shop name", "A101"], ["==", "$Shop name", "Migros"], ["==", "$Shop name", "SOK"]]
+                    },
+                    {
+                        "id":"atms",
+                        "source":"example_source",
+                        "source-layer":"markets",
+                        "type": "circle",
+                        "paint":{
+                            "circle-radius":2,
+                            "circle-color": "goldenrod"
+                        },
+                        "filter":["!=", "$Bank name", ""]
                     }
                 ]
             }
         });
-        map.showTileBoundaries = true;
+        //map.showTileBoundaries = true;
     })
 </script>
 </body>
