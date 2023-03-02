@@ -40,7 +40,7 @@
 
     // we first fetch the header so we can get the center lon, lat of the map.
     p.getHeader().then(h => {
-        const map = new maplibregl.Map({
+        const pmtmap = new maplibregl.Map({
             container: 'map',
             zoom: 6,
             center: [36.5, 37.5],
