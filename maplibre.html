@@ -35,7 +35,7 @@
 	map.on('load', function () {
 		map.addSource('protomaps', {
 		'type': 'vector',
-		"tiles": ["https://ioalexei.github.io/tur_adm2/pmt/adm2_markets.pmtiles"]
+		"url": "https://ioalexei.github.io/tur_adm2/pmt/adm2_markets.pmtiles"
 	});
 		map.addLayer({
 			'id':'markets_lyr', 
@@ -45,7 +45,7 @@
 			'layout':{},
 			'paint':{
 				'circle-radius': 2,
-				'circle-color': '#B42222'
+				'circle-color': 'mediumblue'
 			}
 		});
 	});
