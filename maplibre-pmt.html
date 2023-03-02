@@ -42,9 +42,8 @@
     p.getHeader().then(h => {
         const map = new maplibregl.Map({
             container: 'map',
-            //style: 'https://api.maptiler.com/maps/dataviz/style.json?key=jHKRGcVLQieliF2glneL', // stylesheet location
-            //zoom: 6,
-            //center: [36.5, 37.5],
+            zoom: 6,
+            center: [36.5, 37.5],
             style: {
                 version:8,
                 sources: {
