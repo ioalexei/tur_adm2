@@ -4,7 +4,7 @@
 <meta charset="utf-8" />
 <title>Add a default marker</title>
 <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no" />
-<script src="https://unpkg.com/pmtiles@2.5.0/dist/index.js"></script>
+<script type="text/javascript" src="https://ioalexei.github.io/tur_adm2/js/index.js"></script>
 <script src="https://unpkg.com/maplibre-gl@2.4.0/dist/maplibre-gl.js"></script>
 <link href="https://unpkg.com/maplibre-gl@2.4.0/dist/maplibre-gl.css" rel="stylesheet" />
 <style>
@@ -35,7 +35,7 @@
 	map.on('load', function () {
 		map.addSource('protomaps', {
 		'type': 'vector',
-		"tiles": ["https://ioalexei.github.io/tur_adm2/pmt/adm2_markets/{z}/{x}/{y}.mvt"]
+		"tiles": ["https://ioalexei.github.io/tur_adm2/pmt/adm2_markets.pmtiles"]
 	});
 		map.addLayer({
 			'id':'markets_lyr', 
