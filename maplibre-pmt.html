@@ -19,7 +19,7 @@
 <script>
 	var map = new maplibregl.Map({
 	container: 'map',
-	style: 'https://tiles.stadiamaps.com/styles/alidade_smooth.json?api_key=4c2104b1-b9f9-49bf-bb6a-b5103c46ad85', // stylesheet location
+	style: 'https://api.maptiler.com/maps/dataviz/style.json?key=jHKRGcVLQieliF2glneL', // stylesheet location
 	center: [36.5, 37.5], // starting position [lng, lat]
 	zoom: 6 // starting zoom
 	});
@@ -92,7 +92,15 @@
             }
         });
         //map.showTileBoundaries = true;
-    })
+        })
+        // Create a popup, but don't add it to the map yet.
+        var popup = new maplibregl.Popup({
+        closeButton: false,
+        closeOnClick: false
+        });
+        // https://maplibre.org/maplibre-gl-js-docs/example/popup-on-hover/ 
+        // add rest of code for popups 
+    
 </script>
 </body>
 </html>
