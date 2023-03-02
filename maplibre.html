@@ -35,17 +35,18 @@
 	map.on('load', function () {
 		map.addSource('protomaps', {
 		'type': 'vector',
-		"url": "pmtiles://https://ioalexei.github.io/tur_adm2/pmt/adm2_markets.pmtiles",
+		"url": "pmtiles://https://ioalexei.github.io/tur_adm2/pmt/adm2_markets.pmtiles"
 	});
 		map.addLayer({
-			'id':'markets_lyr', 
-			'type': 'circle',
+			'id':'adm2_lyr', 
+			'type': 'fill',
 			'source':'protomaps', 
-			'source-layer':'shop_banks', 
+			'source-layer':'tur_adm2', 
 			'layout':{},
 			'paint':{
-				'circle-radius': 2,
-				'circle-color': 'mediumblue'
+                "fill-outline-color": "mediumblue",
+                "fill-color": "steelblue",
+                "fill-opacity":0.2
 			}
 		});
 	});
