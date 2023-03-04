@@ -19,12 +19,12 @@
 <script>
 	var map = new maplibregl.Map({
 	container: 'map',
-    //style: 'https://api.maptiler.com/maps/dataviz/style.json?key=jHKRGcVLQieliF2glneL', // stylesheet location
+    style: 'https://api.maptiler.com/maps/dataviz/style.json?key=jHKRGcVLQieliF2glneL', // stylesheet location
 	center: [36.5, 37.5], // starting position [lng, lat]
 	zoom: 6 // starting zoom
 	});
 
-	// Add navigation widget https://maplibre.org/maplibre-gl-js-docs/example/navigation/ 
+	//Add navigation widget https://maplibre.org/maplibre-gl-js-docs/example/navigation/ 
 	map.addControl(new maplibregl.NavigationControl());
 
 	// load pmtiles plugin 
@@ -34,6 +34,9 @@
 	// pmtiles 
 	let PMTILES_URL = "https://ioalexei.github.io/tur_adm2/pmt/adm2_markets.pmtiles";
     const p = new pmtiles.PMTiles(PMTILES_URL)
+
+    
+    const statusColors = ['Open', 'green', 'Closed', 'red'];
 
     // this is so we share one instance across the JS code and the map renderer
     protocol.add(p);
@@ -83,13 +86,10 @@
                         "type": "circle",
                         "paint":{
                             "circle-radius":2,
-                            // "circle-color": ["match", 
-                            //     ["GET", "Status"],
-                            //     "OPEN", "green", 
-                            //     "CLOSED", "red"
-                            //     ], 
-                            "fill-opacity": 0.2
-                        },
+                            "circle-color": ["match", ["string",
+                                ["get", "Status"]],
+                                ...statusColors
+                                ],                        },
                         "filter":["!=", "$Bank name", ""]
                     }
                 ]
