@@ -83,7 +83,12 @@
                         "type": "circle",
                         "paint":{
                             "circle-radius":2,
-                            "circle-color": "goldenrod"
+                            "circle-color": ["match", 
+                                ["GET", "Status"],
+                                "OPEN", "green", 
+                                "CLOSED", "red"
+                                ], 
+                            "fill-opacity": 0.2
                         },
                         "filter":["!=", "$Bank name", ""]
                     }
