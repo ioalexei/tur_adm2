@@ -35,9 +35,6 @@
 	let PMTILES_URL = "https://ioalexei.github.io/tur_adm2/pmt/adm2_markets.pmtiles";
     const p = new pmtiles.PMTiles(PMTILES_URL)
 
-    
-    const statusColors = ['Open', 'green', 'Closed', 'red'];
-
     // this is so we share one instance across the JS code and the map renderer
     protocol.add(p);
 
@@ -86,13 +83,7 @@
                         "type": "circle",
                         "paint":{
                             "circle-radius":2,
-                            "circle-color": ["match",
-                                ["get", "Status"],
-                                "OPEN",
-                                "green",
-                                "CLOSED", 
-                                "red"
-                                ],                        },
+                            "circle-color": "orange",                      },
                         "filter":["!=", "$Bank name", ""]
                     }
                 ]
