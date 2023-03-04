@@ -69,9 +69,9 @@
             "type": "circle",
             "paint":{
                 "circle-radius":2,
-                "circle-color":"purple"
+                "circle-color":"green"
             },
-            "filter":["==", "$Bank name", ""]
+            "filter":["==", "$Status", "OPEN"]
         });
         map.addLayer({
             "id":"atms",
@@ -80,8 +80,8 @@
             "type": "circle",
             "paint":{
                 "circle-radius":2,
-                "circle-color": "orange",                      },
-            "filter":["!=", "$Bank name", ""]
+                "circle-color": "red",                      },
+            "filter":["==", "$Status", "CLOSED"]
         });
     });    
 </script>
