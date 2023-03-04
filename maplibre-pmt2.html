@@ -40,17 +40,16 @@
 
     map.on('load', () => {
     // Add a new vector tile source with ID 'mapillary'.
-    map.addSource('pmt', {
-        'type': 'vector',
-        'url': 'pmtiles://https://ioalexei.github.io/tur_adm2/pmt/adm2_markets.pmtiles'
-        });
     
-    map.on('load', function () {
+        map.addSource('pmt', {
+            'type': 'vector',
+            'url': 'pmtiles://https://ioalexei.github.io/tur_adm2/pmt/adm2_markets.pmtiles'
+            });
         
         map.addSource('protomaps', {
         'type': 'vector',
         "url": "pmtiles://https://ioalexei.github.io/tur_adm2/pmt/adm2_markets.pmtiles"
-    });
+            });
         map.addLayer({
             'id':'adm2_lyr', 
             'type': 'fill',
@@ -72,7 +71,7 @@
                 "circle-radius":2,
                 "circle-color":"purple"
             },
-            "filter":["all", ["==", "$Shop name", "A101"], ["==", "$Shop name", "Migros"], ["==", "$Shop name", "SOK"]]
+            "filter":["==", "$Bank name", ""]
         });
         map.addLayer({
             "id":"atms",
@@ -84,10 +83,7 @@
                 "circle-color": "orange",                      },
             "filter":["!=", "$Bank name", ""]
         });
-    });
-});
-
-    
+    });    
 </script>
 </body>
 </html>

@@ -37,6 +37,7 @@
 		'type': 'vector',
 		"url": "pmtiles://https://ioalexei.github.io/tur_adm2/pmt/adm2_markets.pmtiles"
 	});
+		
 		map.addLayer({
 			'id':'adm2_lyr', 
 			'type': 'fill',
@@ -71,22 +72,6 @@
             "filter":["!=", "$Bank name", ""]
         });
     });
-	// map.on('load', function () {
-	// 	map.addSource('tur_adm2', {
-	// 	'type': 'vector',
-	// 	'url': 'https://api.maptiler.com/tiles/9b4afcdc-8b87-45c0-92b4-73106053d8f3/tiles.json?key=jHKRGcVLQieliF2glneL'
-	// 	});
-	// 	map.addLayer({
-	// 	'id': 'lyr',
-	// 	'type': 'line',
-	// 	'source': 'tur_adm2',
-	// 	'source-layer': 'tur_adm2',
-	// 	'layout': {},
-	// 	'paint': {
-	// 	'line-color': '#088'
-	// 	}
-	// 	});
-	// 	});
 
 </script>
 </body>
