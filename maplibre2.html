@@ -58,7 +58,7 @@
                 "circle-radius":2,
                 "circle-color":"purple"
             },
-            "filter":["all", ["==", "$Shop name", "A101"], ["==", "$Shop name", "Migros"], ["==", "$Shop name", "SOK"]]
+            "filter":["!=", "$Shop name", ""]
         });
         map.addLayer({
             "id":"atms",
