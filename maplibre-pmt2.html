@@ -57,60 +57,7 @@
         "fill-opacity":0.2
     }
     });
-
-
-    // we first fetch the header so we can get the center lon, lat of the map.
-    p.getHeader().then(h => {
-        const map = new maplibregl.Map({
-            container: 'map',
-            zoom: 6,
-            center: [36.5, 37.5],
-            style: {
-                version:8,
-                sources: {
-                    "example_source": {
-                        type: "vector",
-                        url: "pmtiles://" + PMTILES_URL,
-                        attribution: '© <a href="https://openstreetmap.org">OpenStreetMap</a>'
-                    }
-                },
-                layers: [
-                    {
-                        "id":"adm2",
-                        "source": "example_source",
-                        "source-layer":"tur_adm2",
-                        "type": "fill",
-                        "paint": {
-                            "fill-outline-color": "mediumblue",
-                            "fill-color": "steelblue",
-                            "fill-opacity":0.2
-                        }
-                    }, 
-                    {
-                        "id":"shops",
-                        "source": "example_source",
-                        "source-layer":"markets",
-                        "type": "circle",
-                        "paint":{
-                            "circle-radius":2,
-                            "circle-color":"purple"
-                        },
-                        "filter":["!=", "$Shop name", ""]
-                    },
-                    {
-                        "id":"atms",
-                        "source":"example_source",
-                        "source-layer":"markets",
-                        "type": "circle",
-                        "paint":{
-                            "circle-radius":2,
-                            "circle-color": "orange",                      },
-                        "filter":["!=", "$Bank name", ""]
-                    }
-                ]
-            }
-        });
-        })
+});
 
     
 </script>
