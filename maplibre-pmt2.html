@@ -44,18 +44,45 @@
         'type': 'vector',
         'url': 'pmtiles://https://ioalexei.github.io/tur_adm2/pmt/adm2_markets.pmtiles'
         });
-
-    map.addLayer({
-    'id': 'adm2_lyr', // Layer ID
-    'type': 'fill',
-    'source': 'pmt', 
-    "source-layer": "tur_adm2", 
-    "paint": {
-        "fill-outline-color": "mediumblue",
-        "fill-color": "steelblue",
-        "fill-opacity":0.2
-    }
+    
+    map.on('load', function () {
+        map.addSource('protomaps', {
+        'type': 'vector',
+        "url": "pmtiles://https://ioalexei.github.io/tur_adm2/pmt/adm2_markets.pmtiles"
     });
+        map.addLayer({
+            'id':'adm2_lyr', 
+            'type': 'fill',
+            'source':'protomaps', 
+            'source-layer':'tur_adm2', 
+            'layout':{},
+            'paint':{
+                "fill-outline-color": "mediumblue",
+                "fill-color": "steelblue",
+                "fill-opacity":0.2
+            }
+        });
+        map.addLayer({
+            "id":"shops",
+            "source": "example_source",
+            "source-layer":"markets",
+            "type": "circle",
+            "paint":{
+                "circle-radius":2,
+                "circle-color":"purple"
+            },
+            "filter":["all", ["==", "$Shop name", "A101"], ["==", "$Shop name", "Migros"], ["==", "$Shop name", "SOK"]]
+        });
+        map.addLayer({
+            "id":"atms",
+            "source":"example_source",
+            "source-layer":"markets",
+            "type": "circle",
+            "paint":{
+                "circle-radius":2,
+                "circle-color": "orange",                      },
+            "filter":["!=", "$Bank name", ""]
+        });
 });
 
     
