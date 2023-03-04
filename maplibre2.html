@@ -48,8 +48,8 @@
                 "fill-color": "steelblue",
                 "fill-opacity":0.2
 			}
-		},
-			{
+		});
+		map.addLayer({
             "id":"shops",
             "source": "example_source",
             "source-layer":"markets",
@@ -59,8 +59,8 @@
                 "circle-color":"purple"
             },
             "filter":["all", ["==", "$Shop name", "A101"], ["==", "$Shop name", "Migros"], ["==", "$Shop name", "SOK"]]
-        },
-        {
+        });
+        map.addLayer({
             "id":"atms",
             "source":"example_source",
             "source-layer":"markets",
@@ -69,8 +69,8 @@
                 "circle-radius":2,
                 "circle-color": "orange",                      },
             "filter":["!=", "$Bank name", ""]
-        }
-		});
+        });
+    });
 	// map.on('load', function () {
 	// 	map.addSource('tur_adm2', {
 	// 	'type': 'vector',
