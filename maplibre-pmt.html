@@ -86,9 +86,12 @@
                         "type": "circle",
                         "paint":{
                             "circle-radius":2,
-                            "circle-color": ["match", ["string",
-                                ["get", "Status"]],
-                                ...statusColors
+                            "circle-color": ["match",
+                                ["get", "Status"],
+                                "OPEN",
+                                "green",
+                                "CLOSED", 
+                                "red"
                                 ],                        },
                         "filter":["!=", "$Bank name", ""]
                     }
