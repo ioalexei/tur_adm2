@@ -70,18 +70,19 @@
             "paint":{
                 "circle-radius":2,
                 "circle-color":"green"
-            },
-            "filter":["==", "$Status", "OPEN"]
+            }//,
+            // "filter":["==", "$Status", "OPEN"]
         });
-        map.addLayer({
-            "id":"atms",
-            "source":"protomaps",
-            "source-layer":"markets",
-            "type": "circle",
-            "paint":{
-                "circle-radius":2,
-                "circle-color": "red",                      },
-            "filter":["==", "$Status", "CLOSED"]
+        // map.addLayer({
+        //     "id":"atms",
+        //     "source":"protomaps",
+        //     "source-layer":"markets",
+        //     "type": "circle",
+        //     "paint":{
+        //         "circle-radius":2,
+        //         "circle-color": "red",
+        //     },
+            //"filter":["==", "$Status", "CLOSED"]
         });
     });    
 </script>
