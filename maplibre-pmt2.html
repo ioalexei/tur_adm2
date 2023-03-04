@@ -46,6 +46,7 @@
         });
     
     map.on('load', function () {
+        
         map.addSource('protomaps', {
         'type': 'vector',
         "url": "pmtiles://https://ioalexei.github.io/tur_adm2/pmt/adm2_markets.pmtiles"
@@ -83,6 +84,7 @@
                 "circle-color": "orange",                      },
             "filter":["!=", "$Bank name", ""]
         });
+    });
 });
 
     
