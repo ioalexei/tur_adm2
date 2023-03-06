@@ -67,6 +67,7 @@
                 "fill-opacity":0.2
             }
         });
+
         map.addLayer({
             "id":"shops_active",
             "source": "protomaps",
@@ -74,7 +75,7 @@
             "type": "circle",
             "paint":{
                 "circle-radius":2,
-                "circle-color": ["case", ["get", "$IS_ACTIVE"], true, "limegreen", "grey"]
+                "circle-color": ["case", ["==", ["get", "IS_ACTVIVE"], true], "limegreen", ["==", ["get", "IS_ACTVIVE"], false], "red", "grey"]
                 // https://developers.arcgis.com/maplibre-gl-js/styles-and-data-visualization/style-a-feature-layer/
                 // https://maplibre.org/maplibre-gl-js-docs/example/data-driven-lines/
                 // https://docs.mapbox.com/mapbox-gl-js/example/data-driven-circle-colors/
