@@ -74,7 +74,7 @@
             "type": "circle",
             "paint":{
                 "circle-radius":2,
-                "circle-color": ["case", ["boolean", ["get", "$IS_ACTIVE"]], true, "limegreen", "grey"]
+                "circle-color": ["case", ["get", "$IS_ACTIVE"], true, "limegreen", "grey"]
                 // https://developers.arcgis.com/maplibre-gl-js/styles-and-data-visualization/style-a-feature-layer/
                 // https://maplibre.org/maplibre-gl-js-docs/example/data-driven-lines/
                 // https://docs.mapbox.com/mapbox-gl-js/example/data-driven-circle-colors/
