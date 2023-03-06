@@ -95,28 +95,7 @@
 
         // add legend
         // https://docs.maptiler.com/maplibre-gl-js/control-legend/
-        const targets = {
-          20230306atm_locations: "atms",
-          20230306shop_locations: "shops",
-          tur_adm2: "Admin 2"
-        };
-        const options = {
-          showDefault: true,
-          showCheckbox: true,
-          onlyRendered: true,
-          reverseOrder: true
-        };
-        map.addControl(new MaplibreLegendControl(targets, options), "bottom-left");
-        // map.addLayer({
-        //     "id":"atms",
-        //     "source":"protomaps",
-        //     "source-layer":"markets",
-        //     "type": "circle",
-        //     "paint":{
-        //         "circle-radius":2,
-        //         "circle-color": "red",
-        //     },
-            //"filter":["==", "$Status", "CLOSED"]
+        
         });
 </script>
 </body>
