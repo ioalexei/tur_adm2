@@ -27,66 +27,25 @@
 	// Add navigation widget https://maplibre.org/maplibre-gl-js-docs/example/navigation/ 
 	map.addControl(new maplibregl.NavigationControl());
 
-	// load pmtiles plugin 
-	let protocol = new pmtiles.Protocol();
-	maplibregl.addProtocol("pmtiles",protocol.tile);
-
-	// pmtiles 
 	map.on('load', function () {
-		map.addSource('protomaps', {
-		'type': 'vector',
-		"url": "pmtiles://https://ioalexei.github.io/tur_adm2/pmt/adm2_markets.pmtiles"
-	});
-		map.addLayer({
-			'id':'adm2_lyr', 
-			'type': 'fill',
-			'source':'protomaps', 
-			'source-layer':'tur_adm2', 
-			'layout':{},
-			'paint':{
-                "fill-outline-color": "mediumblue",
-                "fill-color": "steelblue",
-                "fill-opacity":0.2
-			}
-		},
-			{
-            "id":"shops",
-            "source": "example_source",
-            "source-layer":"markets",
-            "type": "circle",
-            "paint":{
-                "circle-radius":2,
-                "circle-color":"purple"
-            },
-            "filter":["all", ["==", "$Shop name", "A101"], ["==", "$Shop name", "Migros"], ["==", "$Shop name", "SOK"]]
-        },
-        {
-            "id":"atms",
-            "source":"example_source",
-            "source-layer":"markets",
-            "type": "circle",
-            "paint":{
-                "circle-radius":2,
-                "circle-color": "orange",                      },
-            "filter":["!=", "$Bank name", ""]
-        }
+		map.addSource('wms-test-source', {
+		'type': 'raster',
+		// use the tiles option to specify a WMS tile source URL
+		// https://maplibre.org/maplibre-gl-js-docs/style-spec/sources/
+		'tiles': [
+		'https://api.mapbox.com/styles/v1/go-ifrc/ckrfe16ru4c8718phmckdfjh0/wmts?access_token=pk.eyJ1IjoiZ28taWZyYyIsImEiOiJjamlybHUzNmMwZDUxM3Fwa215YjJ1dzk5In0.OhqEybDX303sHjHzq3nFYQ'
+		],
+		//'tileSize': 256
 		});
-	// map.on('load', function () {
-	// 	map.addSource('tur_adm2', {
-	// 	'type': 'vector',
-	// 	'url': 'https://api.maptiler.com/tiles/9b4afcdc-8b87-45c0-92b4-73106053d8f3/tiles.json?key=jHKRGcVLQieliF2glneL'
-	// 	});
-	// 	map.addLayer({
-	// 	'id': 'lyr',
-	// 	'type': 'line',
-	// 	'source': 'tur_adm2',
-	// 	'source-layer': 'tur_adm2',
-	// 	'layout': {},
-	// 	'paint': {
-	// 	'line-color': '#088'
-	// 	}
-	// 	});
-	// 	});
+		map.addLayer(
+		{
+		'id': 'wms-test-layer',
+		'type': 'raster',
+		'source': 'wms-test-source',
+		'paint': {}
+		},
+		'aeroway_fill'
+		);
 
 </script>
 </body>
