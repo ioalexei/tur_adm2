@@ -69,7 +69,11 @@
             "type": "circle",
             "paint":{
                 "circle-radius":2,
-                "circle-color":"green"
+                "circle-color":["match", ["get", "IS_ACTIVE"], 
+                    "true", 
+                    "green", 
+                    "false", 
+                    "red"]
             }
         }),
         map.addLayer({
@@ -79,7 +83,7 @@
             "type": "circle",
             "paint":{
                 "circle-radius":2,
-                "circle-color":"tomato"
+                "circle-color":"gold"
             }//,
             // "filter":["==", "$Status", "OPEN"]
         });
