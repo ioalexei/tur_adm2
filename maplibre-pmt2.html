@@ -6,6 +6,10 @@
 <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no" />
 <script type="text/javascript" src="https://ioalexei.github.io/tur_adm2/js/index.js"></script>
 <script src="https://unpkg.com/maplibre-gl@2.4.0/dist/maplibre-gl.js"></script>
+<!-- add legend script -->
+<!-- https://docs.maptiler.com/maplibre-gl-js/control-legend/ -->
+<link href='https://watergis.github.io/maplibre-gl-legend/maplibre-gl-legend.css' rel='stylesheet' />
+<script src="https://watergis.github.io/maplibre-gl-legend/maplibre-gl-legend.js"></script>
 <link href="https://unpkg.com/maplibre-gl@2.4.0/dist/maplibre-gl.css" rel="stylesheet" />
 <style>
 	body { margin: 0; padding: 0; }
@@ -39,6 +43,7 @@
     protocol.add(p);
 
     map.on('load', () => {
+
     // Add a new vector tile source with ID 'mapillary'.
     
         map.addSource('pmt', {
@@ -69,11 +74,10 @@
             "type": "circle",
             "paint":{
                 "circle-radius":2,
-                "circle-color":["match", ["get", "IS_ACTIVE"], 
-                    "true", 
-                    "green", 
-                    "false", 
-                    "red"]
+                "circle-color":["match", ["get", "IS_ACTIVE"], "true", "green", "false", "red", "grey"]
+                // https://developers.arcgis.com/maplibre-gl-js/styles-and-data-visualization/style-a-feature-layer/
+                // https://maplibre.org/maplibre-gl-js-docs/example/data-driven-lines/
+
             }
         }),
         map.addLayer({
@@ -87,6 +91,21 @@
             }//,
             // "filter":["==", "$Status", "OPEN"]
         });
+
+        // add legend
+        // https://docs.maptiler.com/maplibre-gl-js/control-legend/
+        const targets = {
+          20230306atm_locations: "atms",
+          20230306shop_locations: "shops",
+          tur_adm2: "Admin 2"
+        };
+        const options = {
+          showDefault: true,
+          showCheckbox: true,
+          onlyRendered: true,
+          reverseOrder: true
+        };
+        map.addControl(new MaplibreLegendControl(targets, options), "bottom-left");
         // map.addLayer({
         //     "id":"atms",
         //     "source":"protomaps",
