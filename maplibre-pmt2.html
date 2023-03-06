@@ -75,12 +75,29 @@
             "type": "circle",
             "paint":{
                 "circle-radius":2,
-                "circle-color": ["case", ["==", "$IS_ACTIVE", true], "limegreen", ["==", "$IS_ACTIVE", false], "red", "grey"]
+                "circle-color": "limegreen"
                 // https://developers.arcgis.com/maplibre-gl-js/styles-and-data-visualization/style-a-feature-layer/
                 // https://maplibre.org/maplibre-gl-js-docs/example/data-driven-lines/
                 // https://docs.mapbox.com/mapbox-gl-js/example/data-driven-circle-colors/
 
-            }
+            },
+            "filter": ["get", "IS_ACTIVE"]
+        });
+
+        map.addLayer({
+            "id":"shops_inactive",
+            "source": "protomaps",
+            "source-layer":"20230306shop_locations",
+            "type": "circle",
+            "paint":{
+                "circle-radius":2,
+                "circle-color": "orangered"
+                // https://developers.arcgis.com/maplibre-gl-js/styles-and-data-visualization/style-a-feature-layer/
+                // https://maplibre.org/maplibre-gl-js-docs/example/data-driven-lines/
+                // https://docs.mapbox.com/mapbox-gl-js/example/data-driven-circle-colors/
+
+            },
+            "filter": ["!=", ["get", "IS_ACTIVE"], false]
         });
 
 
