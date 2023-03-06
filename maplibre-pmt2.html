@@ -68,19 +68,54 @@
             }
         });
         map.addLayer({
-            "id":"shops",
+            "id":"shops_active",
             "source": "protomaps",
             "source-layer":"20230306shop_locations",
             "type": "circle",
             "paint":{
                 "circle-radius":2,
-                "circle-color":["match", ["string", ["get", "IS_ACTIVE"]], "true", "green", "false", "red", "grey"]
+                "circle-color":"green", 
+                "filter":["==", "$IS_ACTIVE", true]
                 // https://developers.arcgis.com/maplibre-gl-js/styles-and-data-visualization/style-a-feature-layer/
                 // https://maplibre.org/maplibre-gl-js-docs/example/data-driven-lines/
                 // https://docs.mapbox.com/mapbox-gl-js/example/data-driven-circle-colors/
 
             }
         });
+
+        map.addLayer({
+            "id":"shops_inactive",
+            "source": "protomaps",
+            "source-layer":"20230306shop_locations",
+            "type": "circle",
+            "paint":{
+                "circle-radius":2,
+                "circle-color":"red", 
+                "filter":["==", "$IS_ACTIVE", false]
+                // https://developers.arcgis.com/maplibre-gl-js/styles-and-data-visualization/style-a-feature-layer/
+                // https://maplibre.org/maplibre-gl-js-docs/example/data-driven-lines/
+                // https://docs.mapbox.com/mapbox-gl-js/example/data-driven-circle-colors/
+
+            }
+        });
+
+         map.addLayer({
+            "id":"shops_unknown",
+            "source": "protomaps",
+            "source-layer":"20230306shop_locations",
+            "type": "circle",
+            "paint":{
+                "circle-radius":2,
+                "circle-color":"green", 
+                "filter":["==", "$IS_ACTIVE", ""]
+                // https://developers.arcgis.com/maplibre-gl-js/styles-and-data-visualization/style-a-feature-layer/
+                // https://maplibre.org/maplibre-gl-js-docs/example/data-driven-lines/
+                // https://docs.mapbox.com/mapbox-gl-js/example/data-driven-circle-colors/
+
+            }
+        });
+
+
         map.addLayer({
             "id":"atms",
             "source": "protomaps",
