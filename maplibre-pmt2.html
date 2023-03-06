@@ -81,7 +81,7 @@
                 // https://docs.mapbox.com/mapbox-gl-js/example/data-driven-circle-colors/
 
             },
-            "filter": ["get", "IS_ACTIVE"]
+            "filter": ["==", ["get", "IS_ACTIVE"], true]
         });
 
         map.addLayer({
@@ -97,7 +97,7 @@
                 // https://docs.mapbox.com/mapbox-gl-js/example/data-driven-circle-colors/
 
             },
-            "filter": ["!=", ["get", "IS_ACTIVE"], false]
+            "filter": ["==", ["get", "IS_ACTIVE"], false]
         });
 
 
