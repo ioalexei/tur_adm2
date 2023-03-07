@@ -74,7 +74,9 @@
             "source-layer":"20230306shop_locations",
             "type": "circle",
             "paint":{
-                "circle-radius":['interpolate', ['linear'], ['zoom'], 10, 2, 17, 10],
+                "circle-radius":['interpolate', ['linear'], ['zoom'], 10, 2, 17, 10], 
+                // https://stackoverflow.com/questions/61032600/scale-marker-size-relative-to-the-zoom-level-in-mapbox-gl-js
+                // https://docs.mapbox.com/mapbox-gl-js/style-spec/expressions/#ramps-scales-curves
                 "circle-color": "limegreen"
                 // https://developers.arcgis.com/maplibre-gl-js/styles-and-data-visualization/style-a-feature-layer/
                 // https://maplibre.org/maplibre-gl-js-docs/example/data-driven-lines/
@@ -91,7 +93,7 @@
             "source-layer":"20230306shop_locations",
             "type": "circle",
             "paint":{
-                "circle-radius":2,
+                "circle-radius":['interpolate', ['linear'], ['zoom'], 10, 2, 17, 10], 
                 "circle-color": "orangered"
                 // https://developers.arcgis.com/maplibre-gl-js/styles-and-data-visualization/style-a-feature-layer/
                 // https://maplibre.org/maplibre-gl-js-docs/example/data-driven-lines/
@@ -108,7 +110,7 @@
             "source-layer":"20230306atm_locations",
             "type": "circle",
             "paint":{
-                "circle-radius":2,
+                "circle-radius":['interpolate', ['linear'], ['zoom'], 10, 2, 17, 10], 
                 "circle-color":"gold"
             }//,
             // "filter":["==", "$Status", "OPEN"]
