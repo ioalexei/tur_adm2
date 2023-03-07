@@ -74,7 +74,7 @@
             "source-layer":"20230306shop_locations",
             "type": "circle",
             "paint":{
-                "circle-radius":2,
+                "circle-radius":['interpolate', ['linear'], ['zoom'], 10, 2, 8, 15],
                 "circle-color": "limegreen"
                 // https://developers.arcgis.com/maplibre-gl-js/styles-and-data-visualization/style-a-feature-layer/
                 // https://maplibre.org/maplibre-gl-js-docs/example/data-driven-lines/
