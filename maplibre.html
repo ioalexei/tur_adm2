@@ -32,10 +32,8 @@
 		'type': 'raster',
 		// use the tiles option to specify a WMS tile source URL
 		// https://maplibre.org/maplibre-gl-js-docs/style-spec/sources/
-		'tiles': [
-		'https://api.mapbox.com/styles/v1/go-ifrc/ckrfe16ru4c8718phmckdfjh0/wmts?access_token=pk.eyJ1IjoiZ28taWZyYyIsImEiOiJjamlybHUzNmMwZDUxM3Fwa215YjJ1dzk5In0.OhqEybDX303sHjHzq3nFYQ'
-		],
-		'tileSize': 512
+		'url': 'https://api.mapbox.com/styles/v1/go-ifrc/ckrfe16ru4c8718phmckdfjh0/tiles/{TileMatrix}/{TileCol}/{TileRow}?access_token=pk.eyJ1IjoiZ28taWZyYyIsImEiOiJjamlybHUzNmMwZDUxM3Fwa215YjJ1dzk5In0.OhqEybDX303sHjHzq3nFYQ'
+		//'tileSize': 512
 		});
 		map.addLayer(
 		{
