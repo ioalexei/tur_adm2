@@ -17,6 +17,51 @@
 <div id="map"></div>
 
 <script>
+
+	const apiKey = 'pk.eyJ1IjoiZ28taWZyYyIsImEiOiJja3E2bGdvb3QwaXM5MnZtbXN2eGtmaWgwIn0.llipq3Spc_PPA2bLjPwIPQ';
+
+    // Define parameters object.
+    const params = {
+        key: apiKey,
+        service: 'WMTS',
+        request: 'GetTile',
+        version: '2.0.0',
+        height: 512,
+        width: 512,
+        outputFormat: 'image/png',
+        style: 'default',
+        layer: 'LIVE - GO - IFRC Basemap v1',
+        tileMatrixSet: 'EPSG:3857',
+        tileMatrix: '{TileMatrix}',
+        tileRow: '{TileCol}',
+        tileCol: '{TileRow}'
+    };
+
+    // Construct query string parameters from object.
+    const queryString = Object.keys(params).map(function(key) {
+        return key + '=' + params[key];
+    }).join('&');
+
+    // Create a map style object using the WMTS service.
+    const style = {
+        "version": 8,
+        "sources": {
+            "raster-tiles": {
+                "type": "raster",
+                "tiles": [ "https://api.mapbox.com/styles/v1/go-ifrc/ckrfe16ru4c8718phmckdfjh0/wmts?" + queryString ],
+                "tileSize": 256
+            }
+        },
+        "layers": [{
+            "id": "os-maps-wmts",
+            "type": "raster",
+            "source": "raster-tiles"
+        }]
+    };
+
+
+
+
 	var map = new maplibregl.Map({
 	container: 'map',
 	style: 'https://tiles.stadiamaps.com/styles/alidade_smooth.json?api_key=4c2104b1-b9f9-49bf-bb6a-b5103c46ad85', // stylesheet location
