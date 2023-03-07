@@ -20,7 +20,7 @@
 	var map = new maplibregl.Map({
 	container: 'map',
 	style: 'https://tiles.stadiamaps.com/styles/alidade_smooth.json?api_key=4c2104b1-b9f9-49bf-bb6a-b5103c46ad85', // stylesheet location
-	center: [36.5, 37.5], // starting position [lng, lat]
+	center: [51, 0], // starting position [lng, lat]
 	zoom: 6 // starting zoom
 	});
 
@@ -32,8 +32,8 @@
 		'type': 'raster',
 		// use the tiles option to specify a WMS tile source URL
 		// https://maplibre.org/maplibre-gl-js-docs/style-spec/sources/
-		'url': 'https://api.mapbox.com/styles/v1/go-ifrc/ckrfe16ru4c8718phmckdfjh0/tiles/{TileMatrix}/{TileCol}/{TileRow}?access_token=pk.eyJ1IjoiZ28taWZyYyIsImEiOiJjamlybHUzNmMwZDUxM3Fwa215YjJ1dzk5In0.OhqEybDX303sHjHzq3nFYQ'
-		//'tileSize': 512
+		'tiles': ["https://api.mapbox.com/styles/v1/go-ifrc/ckrfe16ru4c8718phmckdfjh0/wmts?bbox={bbox-epsg-3857}&access_token=pk.eyJ1IjoiZ28taWZyYyIsImEiOiJjamlybHUzNmMwZDUxM3Fwa215YjJ1dzk5In0.OhqEybDX303sHjHzq3nFYQ"],
+		'tileSize': 512
 		});
 		map.addLayer(
 		{
